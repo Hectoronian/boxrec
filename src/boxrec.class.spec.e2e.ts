@@ -22,6 +22,7 @@ import {Boxrec} from "./boxrec.class";
 
 export const boxrec: Boxrec = require("./boxrec.class.ts");
 export const {BOXREC_USERNAME, BOXREC_PASSWORD} = process.env;
+global.Promise = require.requireActual("promise");
 
 if (!BOXREC_USERNAME) {
     throw new Error("missing required env var BOXREC_USERNAME");
