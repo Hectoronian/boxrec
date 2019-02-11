@@ -6,7 +6,12 @@ import {BoxrecBasic, BoxrecJudge, Record, Stance, WinLossDraw} from "../../boxre
 import {WeightDivision} from "../../champions/boxrec.champions.constants";
 import {BoxingBoutOutcome} from "../boxrec.event.constants";
 import {BoxrecPageEvent} from "../boxrec.page.event";
-import {BoutPageBoutOutcome, BoutPageLast6, BoutPageOutcome} from "./boxrec.event.bout.constants";
+import {
+    BoutPageBoutOutcome,
+    BoutPageLast6,
+    BoutPageOutcome,
+    BoxrecEventBoutOutput
+} from "./boxrec.event.bout.constants";
 
 /**
  * Parse a BoxRec bout page
@@ -29,6 +34,51 @@ export class BoxrecPageEventBout extends BoxrecPageEvent {
         }
 
         return date;
+    }
+
+    get output(): BoxrecEventBoutOutput {
+        return {
+            bouts: this.bouts,
+            commission: this.commission,
+            date: this.date,
+            division: this.division,
+            doctors: this.doctors,
+            firstBoxer: this.firstBoxer,
+            firstBoxerAge: this.firstBoxerAge,
+            firstBoxerHeight: this.firstBoxerHeight,
+            firstBoxerKOs: this.firstBoxerKOs,
+            firstBoxerLast6: this.firstBoxerLast6,
+            firstBoxerPointsAfter: this.firstBoxerPointsAfter,
+            firstBoxerPointsBefore: this.firstBoxerPointsBefore,
+            firstBoxerRanking: this.firstBoxerRanking,
+            firstBoxerReach: this.firstBoxerReach,
+            firstBoxerRecord: this.firstBoxerRecord,
+            firstBoxerStance: this.firstBoxerStance,
+            id: this.id,
+            inspector: this.inspector,
+            judges: this.judges,
+            location: this.location,
+            matchmakers: this.matchmakers,
+            numberOfBouts: this.numberOfBouts,
+            numberOfRounds: this.numberOfRounds,
+            outcome: this.outcome,
+            promoters: this.promoters,
+            rating: this.rating,
+            referee: this.referee,
+            secondBoxer: this.secondBoxer,
+            secondBoxerAge: this.secondBoxerAge,
+            secondBoxerHeight: this.secondBoxerHeight,
+            secondBoxerKOs: this.secondBoxerKOs,
+            secondBoxerLast6: this.secondBoxerLast6,
+            secondBoxerPointsAfter: this.secondBoxerPointsAfter,
+            secondBoxerPointsBefore: this.secondBoxerPointsBefore,
+            secondBoxerRanking: this.secondBoxerRanking,
+            secondBoxerReach: this.secondBoxerReach,
+            secondBoxerRecord: this.secondBoxerRecord,
+            secondBoxerStance: this.secondBoxerStance,
+            television: this.television,
+            titles: this.titles,
+        };
     }
 
     get division(): WeightDivision | null {
@@ -198,35 +248,6 @@ export class BoxrecPageEventBout extends BoxrecPageEvent {
     get titles(): BoxrecTitles[] {
         const titles: string | null = this.parseTitles();
         return BoxrecCommonTablesColumnsClass.parseTitles(titles || "");
-    }
-
-    private static parseOutcome(outcomeStr: string): BoutPageOutcome {
-        const trimmedOutcomeStr: string = trimRemoveLineBreaks(outcomeStr);
-        const matches: RegExpMatchArray | null = trimmedOutcomeStr.match(/^(\w+)\s(\w+)$/);
-
-        const outcomeObj: BoutPageOutcome = {
-            outcome: null,
-            outcomeByWayOf: null,
-        };
-
-        if (matches) {
-            const firstMatch: string = matches[1];
-            const secondMatch: string = matches[2];
-            const values: any = BoxingBoutOutcome;
-
-            // the outcome table column is flipped depending if they are the first or second boxer
-            if (firstMatch.length > 1) {
-                // is the first boxer
-                outcomeObj.outcomeByWayOf = values[firstMatch] as BoxingBoutOutcome;
-                outcomeObj.outcome = BoxrecCommonTablesColumnsClass.parseOutcome(secondMatch);
-            } else {
-                // is the second boxer
-                outcomeObj.outcomeByWayOf = values[secondMatch] as BoxingBoutOutcome;
-                outcomeObj.outcome = BoxrecCommonTablesColumnsClass.parseOutcome(firstMatch);
-            }
-        }
-
-        return outcomeObj;
     }
 
     // this is different than the others found on date/event page
@@ -639,6 +660,35 @@ export class BoxrecPageEventBout extends BoxrecPageEvent {
 
     private parseTitles(): string | null {
         return this.$(".titleColor").html();
+    }
+
+    private static parseOutcome(outcomeStr: string): BoutPageOutcome {
+        const trimmedOutcomeStr: string = trimRemoveLineBreaks(outcomeStr);
+        const matches: RegExpMatchArray | null = trimmedOutcomeStr.match(/^(\w+)\s(\w+)$/);
+
+        const outcomeObj: BoutPageOutcome = {
+            outcome: null,
+            outcomeByWayOf: null,
+        };
+
+        if (matches) {
+            const firstMatch: string = matches[1];
+            const secondMatch: string = matches[2];
+            const values: any = BoxingBoutOutcome;
+
+            // the outcome table column is flipped depending if they are the first or second boxer
+            if (firstMatch.length > 1) {
+                // is the first boxer
+                outcomeObj.outcomeByWayOf = values[firstMatch] as BoxingBoutOutcome;
+                outcomeObj.outcome = BoxrecCommonTablesColumnsClass.parseOutcome(secondMatch);
+            } else {
+                // is the second boxer
+                outcomeObj.outcomeByWayOf = values[secondMatch] as BoxingBoutOutcome;
+                outcomeObj.outcome = BoxrecCommonTablesColumnsClass.parseOutcome(firstMatch);
+            }
+        }
+
+        return outcomeObj;
     }
 
 }

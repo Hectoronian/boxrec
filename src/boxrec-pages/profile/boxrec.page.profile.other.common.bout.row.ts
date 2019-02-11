@@ -1,7 +1,6 @@
-import * as cheerio from "cheerio";
 import {BoxrecCommonTablesColumnsClass} from "../../boxrec-common-tables/boxrec-common-tables-columns.class";
 import {getColumnData, trimRemoveLineBreaks} from "../../helpers";
-import {BoxrecBasic, Location, Record, WinLossDraw} from "../boxrec.constants";
+import {BoxrecBasic, BoxrecLocation, Record, WinLossDraw} from "../boxrec.constants";
 import {BoxrecPageProfileBoxerBoutRow} from "./boxrec.page.profile.boxer.bout.row";
 import {BoxrecProfileCommonRow} from "./boxrec.profile.common.row";
 
@@ -34,7 +33,7 @@ export class BoxrecPageProfileOtherCommonBoutRow extends BoxrecProfileCommonRow 
         return !this.hasMoreColumns;
     }
 
-    get location(): Location {
+    get location(): BoxrecLocation {
         return BoxrecCommonTablesColumnsClass.parseLocationLink(getColumnData(this.$, 11));
     }
 

@@ -1,5 +1,6 @@
 import * as cheerio from "cheerio";
 import {BoxrecPageProfile} from "./boxrec.page.profile";
+import {BoxrecProfileEventsOutput} from "./boxrec.page.profile.constants";
 import {BoxrecPageProfileEventRow} from "./boxrec.page.profile.event.row";
 
 /**
@@ -24,6 +25,21 @@ export class BoxrecPageProfileEvents extends BoxrecPageProfile {
             .map((index: number, elem: CheerioElement) => this.$(elem).html() || "")
             .get() // Cheerio -> string[]
             .map(item => new BoxrecPageProfileEventRow(item));
+    }
+
+    get output(): BoxrecProfileEventsOutput {
+        return {
+            birthName: this.birthName,
+            birthPlace: this.birthPlace,
+            events: this.events,
+            globalId: this.globalId,
+            name: this.name,
+            otherInfo: this.otherInfo,
+            picture: this.picture,
+            residence: this.residence,
+            role: this.role,
+            status: this.status,
+        };
     }
 
 }

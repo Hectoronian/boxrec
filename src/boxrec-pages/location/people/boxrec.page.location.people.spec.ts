@@ -29,7 +29,6 @@ describe("class BoxrecPageLocationPeople", () => {
 
     });
 
-
     describe("getter boxers", () => {
 
         it("should return an array of location data", () => {

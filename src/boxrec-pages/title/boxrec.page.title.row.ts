@@ -3,7 +3,7 @@ import {BoxrecCommonLinks} from "../../boxrec-common-tables/boxrec-common-links"
 import {BoxrecCommonTablesColumnsClass} from "../../boxrec-common-tables/boxrec-common-tables-columns.class";
 import {BoxrecGeneralLinks} from "../../boxrec-common-tables/boxrec-common.constants";
 import {getColumnData, trimRemoveLineBreaks} from "../../helpers";
-import {BoxrecBasic, Location, WinLossDraw} from "../boxrec.constants";
+import {BoxrecBasic, BoxrecLocation, WinLossDraw} from "../boxrec.constants";
 
 export class BoxrecPageTitleRow {
 
@@ -35,7 +35,7 @@ export class BoxrecPageTitleRow {
         });
     }
 
-    get location(): Location {
+    get location(): BoxrecLocation {
         return BoxrecCommonTablesColumnsClass.parseLocationLink(getColumnData(this.$, 7), 1);
     }
 

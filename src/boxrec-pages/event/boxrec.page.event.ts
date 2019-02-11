@@ -4,6 +4,7 @@ import {trimRemoveLineBreaks} from "../../helpers";
 import {BoxrecBasic, BoxrecBoutLocation} from "../boxrec.constants";
 import {BoxrecRole} from "../search/boxrec.search.constants";
 import {BoxrecEvent} from "./boxrec.event";
+import {BoxrecEventOutput} from "./boxrec.event.constants";
 
 /**
  * Parse an Event page
@@ -138,6 +139,22 @@ export class BoxrecPageEvent extends BoxrecEvent {
 
     protected parsePromoters(): string {
         return this.parseEventData(BoxrecRole.promoter);
+    }
+
+    get output(): BoxrecEventOutput {
+        return {
+            bouts: this.bouts,
+            commission: this.commission,
+            date: this.date,
+            doctors: this.doctors,
+            id: this.id,
+            inspector: this.inspector,
+            location: this.location,
+            matchmakers: this.matchmakers,
+            numberOfBouts: this.numberOfBouts,
+            promoters: this.promoters,
+            television: this.television,
+        };
     }
 
     get television(): string[] {

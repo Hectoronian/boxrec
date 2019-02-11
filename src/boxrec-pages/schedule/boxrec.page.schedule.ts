@@ -2,6 +2,7 @@ import * as cheerio from "cheerio";
 import {stripCommas} from "../../helpers";
 import {BoxrecPageEvent} from "../event/boxrec.page.event";
 import {BoxrecPageScheduleCommon} from "./boxrec.page.schedule.common";
+import {BoxrecScheduleOutput} from "./boxrec.page.schedule.constants";
 
 /**
  * BoxRec Results/Schedule Page
@@ -26,4 +27,10 @@ export class BoxrecPageSchedule extends BoxrecPageScheduleCommon {
         return parseInt(stripCommas(text), 10);
     }
 
+    get output(): BoxrecScheduleOutput {
+        return {
+            events: this.events,
+            numberOfPages: this.numberOfPages,
+        };
+    }
 }

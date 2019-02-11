@@ -1,6 +1,7 @@
 import * as cheerio from "cheerio";
 import {trimRemoveLineBreaks} from "../../helpers";
-import {Location} from "../boxrec.constants";
+import {BoxrecLocation} from "../boxrec.constants";
+import {BoxrecVenueOutput} from "./boxrec.page.venue.constants";
 import {BoxrecPageVenueEventsRow} from "./boxrec.page.venue.events.row";
 
 /**
@@ -26,9 +27,6 @@ export class BoxrecPageVenue {
             .map(item => new BoxrecPageVenueEventsRow(item));
     }
 
-    // we're going to return the first event that has the Location object
-    // that's assuming that there's no venues on BoxRec with no event associated with it
-
     /**
      * Returns an array of boxers that are in the area
      * @returns {Object}  could use BoxrecBasic but this shouldn't return null values, so using `{ id: string, name: string }[]`
@@ -36,6 +34,9 @@ export class BoxrecPageVenue {
     get localBoxers(): Array<{ id: number, name: string }> {
         return this.parseBasicInfo("boxer");
     }
+
+    // we're going to return the first event that has the BoxrecLocation object
+    // that's assuming that there's no venues on BoxRec with no event associated with it
 
     /**
      * Returns an array of managers that operate in this area
@@ -46,12 +47,22 @@ export class BoxrecPageVenue {
     }
 
     // worst case scenario we could just return the string of the location
-    get location(): Location {
+    get location(): BoxrecLocation {
         return this.events[0].location;
     }
 
     get name(): string {
         return trimRemoveLineBreaks(this.$("h1").text());
+    }
+
+    get output(): BoxrecVenueOutput {
+        return {
+            events: this.events,
+            localBoxers: this.localBoxers,
+            localManagers: this.localManagers,
+            location: this.location,
+            name: this.name
+        };
     }
 
     private parseBasicInfo(type: "manager" | "boxer"): Array<{ id: number, name: string }> {

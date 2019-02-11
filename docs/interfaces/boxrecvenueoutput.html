@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Location | boxrec</title>
+	<title>BoxrecVenueOutput | boxrec</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="location.html">Location</a>
+					<a href="boxrecvenueoutput.html">BoxrecVenueOutput</a>
 				</li>
 			</ul>
-			<h1>Interface Location</h1>
+			<h1>Interface BoxrecVenueOutput</h1>
 		</div>
 	</div>
 </header>
@@ -68,7 +68,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">Location</span>
+						<span class="target">BoxrecVenueOutput</span>
 					</li>
 				</ul>
 			</section>
@@ -79,10 +79,11 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="location.html#country" class="tsd-kind-icon">country</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="location.html#id" class="tsd-kind-icon">id</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="location.html#region" class="tsd-kind-icon">region</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="location.html#town" class="tsd-kind-icon">town</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="boxrecvenueoutput.html#events" class="tsd-kind-icon">events</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="boxrecvenueoutput.html#localboxers" class="tsd-kind-icon">local<wbr>Boxers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="boxrecvenueoutput.html#localmanagers" class="tsd-kind-icon">local<wbr>Managers</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="boxrecvenueoutput.html#location" class="tsd-kind-icon">location</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="boxrecvenueoutput.html#name" class="tsd-kind-icon">name</a></li>
 							</ul>
 						</section>
 					</div>
@@ -91,42 +92,52 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="country" class="tsd-anchor"></a>
-					<h3>country</h3>
-					<div class="tsd-signature tsd-kind-icon">country<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<a name="events" class="tsd-anchor"></a>
+					<h3>events</h3>
+					<div class="tsd-signature tsd-kind-icon">events<span class="tsd-signature-symbol">:</span> <a href="../classes/boxrecpagevenueeventsrow.html" class="tsd-signature-type">BoxrecPageVenueEventsRow</a><span class="tsd-signature-symbol">[]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in boxrec-pages/boxrec.constants.ts:6</li>
+							<li>Defined in <a href="https://github.com/boxing/boxrec/blob/8a0eeea/src/boxrec-pages/venue/boxrec.page.venue.constants.ts#L5">boxrec-pages/venue/boxrec.page.venue.constants.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="id" class="tsd-anchor"></a>
-					<h3>id</h3>
-					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<a name="localboxers" class="tsd-anchor"></a>
+					<h3>local<wbr>Boxers</h3>
+					<div class="tsd-signature tsd-kind-icon">local<wbr>Boxers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in boxrec-pages/boxrec.constants.ts:7</li>
+							<li>Defined in <a href="https://github.com/boxing/boxrec/blob/8a0eeea/src/boxrec-pages/venue/boxrec.page.venue.constants.ts#L6">boxrec-pages/venue/boxrec.page.venue.constants.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="region" class="tsd-anchor"></a>
-					<h3>region</h3>
-					<div class="tsd-signature tsd-kind-icon">region<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<a name="localmanagers" class="tsd-anchor"></a>
+					<h3>local<wbr>Managers</h3>
+					<div class="tsd-signature tsd-kind-icon">local<wbr>Managers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in boxrec-pages/boxrec.constants.ts:8</li>
+							<li>Defined in <a href="https://github.com/boxing/boxrec/blob/8a0eeea/src/boxrec-pages/venue/boxrec.page.venue.constants.ts#L7">boxrec-pages/venue/boxrec.page.venue.constants.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="town" class="tsd-anchor"></a>
-					<h3>town</h3>
-					<div class="tsd-signature tsd-kind-icon">town<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">null</span></div>
+					<a name="location" class="tsd-anchor"></a>
+					<h3>location</h3>
+					<div class="tsd-signature tsd-kind-icon">location<span class="tsd-signature-symbol">:</span> <a href="boxreclocation.html" class="tsd-signature-type">BoxrecLocation</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in boxrec-pages/boxrec.constants.ts:9</li>
+							<li>Defined in <a href="https://github.com/boxing/boxrec/blob/8a0eeea/src/boxrec-pages/venue/boxrec.page.venue.constants.ts#L8">boxrec-pages/venue/boxrec.page.venue.constants.ts:8</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="name" class="tsd-anchor"></a>
+					<h3>name</h3>
+					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/boxing/boxrec/blob/8a0eeea/src/boxrec-pages/venue/boxrec.page.venue.constants.ts#L9">boxrec-pages/venue/boxrec.page.venue.constants.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -145,19 +156,22 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="location.html" class="tsd-kind-icon">Location</a>
+						<a href="boxrecvenueoutput.html" class="tsd-kind-icon">Boxrec<wbr>Venue<wbr>Output</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="location.html#country" class="tsd-kind-icon">country</a>
+								<a href="boxrecvenueoutput.html#events" class="tsd-kind-icon">events</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="location.html#id" class="tsd-kind-icon">id</a>
+								<a href="boxrecvenueoutput.html#localboxers" class="tsd-kind-icon">local<wbr>Boxers</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="location.html#region" class="tsd-kind-icon">region</a>
+								<a href="boxrecvenueoutput.html#localmanagers" class="tsd-kind-icon">local<wbr>Managers</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="location.html#town" class="tsd-kind-icon">town</a>
+								<a href="boxrecvenueoutput.html#location" class="tsd-kind-icon">location</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="boxrecvenueoutput.html#name" class="tsd-kind-icon">name</a>
 							</li>
 						</ul>
 					</li>

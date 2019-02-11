@@ -313,7 +313,7 @@ class Boxrec {
         this.checkIfLoggedIntoBoxRec();
 
         const boxrecPageBody: RequestResponse["body"] = await BoxrecRequests.getWatched(this._cookieJar);
-        return new BoxrecPageWatch(boxrecPageBody).list();
+        return new BoxrecPageWatch(boxrecPageBody).list;
     }
 
     /**
